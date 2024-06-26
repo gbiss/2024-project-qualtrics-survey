@@ -127,6 +127,8 @@ for idx, row in df.iterrows():
         if not np.isnan(row[crs]) and row[crs] > 1
     ]
     total_num_courses = row["3"]
+    if np.isnan(total_num_courses):
+        continue
     student = RenaissanceMan(
         topics,
         [min(len(topic), total_num_courses) for topic in topics],
